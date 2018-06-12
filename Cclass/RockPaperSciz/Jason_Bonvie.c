@@ -21,7 +21,7 @@ int main(){
     }
     return 0;
 }
-
+// this function covers all the possible rock paper scissors posibilites 
 void Winner(int comp, int person){
     
     if (comp == person){
