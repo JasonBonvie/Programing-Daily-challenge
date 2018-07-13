@@ -14,7 +14,8 @@ int main(){
      welcome();
      return 0 ; 
 }
-
+// This funtion is waht calls all of the operaor funtions and give the calculator its terminal 
+// interface. 
 void welcome(){
 	char yon = 'y';
 	while(yon == 'y'){
@@ -38,17 +39,14 @@ void welcome(){
 			scanf("%f", &B);
 			printf("Please enter the operation you would like to preform. \n");
 			scanf("%s", &Op);
-			printf("%c", Op );
             // conditonal statements for all of the operators supported. 
 			if (Op == '+'){
 				result = sum(A,B);
 				printf("The sum is : %f\n", result);
-				continue;
 			}
 			if (Op == '-'){
 				result = sub(A,B);
 				printf("The differance is : %f\n", result);
-				continue;
 			}
 			if (Op == '*'){
 				result = mult(A,B);
@@ -58,16 +56,15 @@ void welcome(){
 			if (Op == 'P'){
 				result = powe(A,B);
 				printf("The A raised to the power B is : %f\n", result);
-				continue;
 			}
 			if (Op == '!'){
 				result = fact(A,B);
 				printf("The factorial of A + B (where the factorial of N = 1 x 2 x 3 x 4 x ... x N) %f\n", fact(A,B));
-				continue;
 			}
-			else{
+			else if((Op != '+') && (Op != '-') && (Op != '*') && (Op != 'P') && (Op != '!')){
 				printf("The operator you entered is not supported.\n");
 			}
+			
 			
 		}
 
@@ -82,34 +79,33 @@ void welcome(){
 	        if (Op == '+'){
 				result = sum(result,B);
 				printf("The sum is : %f\n", result);
-				continue;
 			}
 			if (Op == '-'){
 				result = sub(result,B);
 				printf("The differance is : %f\n", result);
-				continue;
+		
 			}
 			if (Op == '*'){
 				result = mult(result,B);
 				printf("The product is : %f\n", result);
-				continue;
+			
 			}
 			if (Op == 'P'){
 				result = powe(result,B);
 				printf("The A raised to the power B is : %f\n", result);
-				continue;
+
 			}
 			if (Op == '!'){
 				result = fact(result,B);
 				printf("The factorial of A + B (where the factorial of N = 1 x 2 x 3 x 4 x ... x N) %f\n", result);
-			
-				continue;
+	
 			}
-			else{
-				printf("The operator you entered is not supported.");
+			else if((Op != '+') && (Op != '-') && (Op != '*') && (Op != 'P') && (Op != '!')){
+				printf("The operator you entered is not supported.\n");
 			}
 			
 		}
+		// Checks to see if the user would like to exit the program. 
 		printf("would you like to preform another calculation? y/n\n");
 		scanf("%s", &yon); 
 	}
@@ -142,6 +138,7 @@ double powe(float A, float B){
 		printf("sorry you entered a negative number");
 		return -1; 
 	}
+	// cast float to a double so that we can use the built in power funtion. 
 	a = (double)A; 
 	b = (double)B; 
 	p = pow(a, b);  
