@@ -14,11 +14,13 @@ float fact(float A, float B);
 int main(){
      welcome();
      return 0 ; 
-
 }
 
 void welcome(){
 	while(1 == 1 ){
+		float A;
+		float B;
+		char Op = 'k';
 		static float result = 0; 
 		printf("~~~~~~~Welcome to the calculator 5000~~~~~~~\n");
 		printf("The current previous result is %f\n", result );
@@ -28,9 +30,7 @@ void welcome(){
 		int selection;
 		scanf("%d", &selection);
 		if (selection == 1){
-			float A;
-		    float B;
-		    char Op = 'k';
+
 			printf("Please enter operator A: \n");
 			scanf("%f", &A);
 			printf("Please enter operator B: \n"); 
@@ -46,21 +46,49 @@ void welcome(){
 			}
 			if (Op == '-'){
 				result = sub(A,B);
-				printf("The differance is : %f\n", sub(A,B));
+				printf("The differance is : %f\n", result);
 			}
 			if (Op == '*'){
-				printf("The product is : %f\n", mult(A,B));
+				result = mult(A,B);
+				printf("The product is : %f\n", result);
 			}
 			if (Op == 'P'){
-				printf("The A raised to the power B is : %f\n", powe(A,B));
+				result = powe(A,B);
+				printf("The A raised to the power B is : %f\n", result);
 			}
 			if (Op == '!'){
+				result = fact(A,B);
 				printf("The factorial of A + B (where the factorial of N = 1 x 2 x 3 x 4 x ... x N) %f\n", fact(A,B));
 			}
 		}
 
 		if (selection == 2){
-	        printf("ok123\n"); 
+
+			printf("Please enter operator B: \n"); 
+			scanf("%f", &B);
+			printf("Please enter the operation you would like to preform. \n");
+			scanf("%s", &Op);
+			printf("%c", Op );
+	        if (Op == '+'){
+				result = sum(result,B);
+				printf("The sum is : %f\n", result);
+			}
+			if (Op == '-'){
+				result = sub(result,B);
+				printf("The differance is : %f\n", result);
+			}
+			if (Op == '*'){
+				result = mult(result,B);
+				printf("The product is : %f\n", result);
+			}
+			if (Op == 'P'){
+				result = powe(result,B);
+				printf("The A raised to the power B is : %f\n", result);
+			}
+			if (Op == '!'){
+				result = fact(result,B);
+				printf("The factorial of A + B (where the factorial of N = 1 x 2 x 3 x 4 x ... x N) %f\n", result);
+			}
 		}
 	}
 
@@ -92,6 +120,11 @@ double powe(float A, float B){
 	return p;
 }
 float fact(float A, float B){
-	return 0.0;
+	float N = A + B; 
+	float factorial = 1; 
+	for (int i = 1; i <= N; i++){
+		factorial *= i;
+	}
+	return factorial; 
 }
 
