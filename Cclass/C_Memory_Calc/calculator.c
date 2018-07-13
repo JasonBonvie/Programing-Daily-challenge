@@ -69,7 +69,7 @@ void welcome(){
 		}
 
 		if (selection == 2){
-
+			printf("your previous result is %f\n", result );
 			printf("Please enter operator B: \n"); 
 			scanf("%f", &B);
 			printf("Please enter the operation you would like to preform. \n");
