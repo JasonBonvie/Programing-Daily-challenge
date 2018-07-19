@@ -23,6 +23,8 @@ int main(){
 	computeBox(&R2);
 	printBox(R1);
 	printBox(R2);
+	printf("%d\n",compareBox(R1,R2)); 
+
 }
 
 void computeBox(struct Box *B){
@@ -31,12 +33,13 @@ void computeBox(struct Box *B){
 };
 
 void printBox(struct Box b){
-	printf("%s\n",b.name);
-	printf("%d\n",b.length);
-	printf("%d\n",b.width);
-	printf("%d\n",b.height);
-	printf("%d\n",b.area);
-	printf("%d\n",b.parameter);
+
+	printf("~~~~ YOUR BOX ~~~~ \nThe Name is: %s\n",b.name);
+	printf("The length is: %d\n",b.length);
+	printf("The width is: %d\n",b.width);
+	printf("The height is: %d\n",b.height);
+	printf("The area is: %d\n",b.area);
+	printf("The parameter is: %d\n",b.parameter);
 	
 };
 
