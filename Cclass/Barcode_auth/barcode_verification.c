@@ -2,12 +2,11 @@
 #include <string.h>
 #include <stdbool.h>
 
-
 bool isValid(char barCode[]);
-
 int main(int argc, char *argv[]){
 	char serialcode1[] = "89238498723498KL";
 	char serialcode2[] = "97083498SL";
+	char serialcode3[] = "97083498S";
 	if( isValid (serialcode1) ){
 		printf("serialcode 1 is valid code\n");
 	}
@@ -21,9 +20,13 @@ int main(int argc, char *argv[]){
 	else{
 		printf("serialcode 2 isinvalid code\n");
 	}
+	if( isValid (serialcode3) ){
+		printf("serialcode 3 is valid code\n");
+	}
+	else{
+		printf("serialcode 3 is invalid code\n");
+	}
 }
-
-
 
 bool isValid(char barCode[]){
 	// the two char lists below hold what we well be comparing portions fo the 
@@ -40,8 +43,6 @@ bool isValid(char barCode[]){
 	dest[2] = '\0';
 	// printf("%s\n",dest );
 	int count = 0 ; 
-
-
 	// printing out each of the problems that a code may have if it is invalid. 
 	if (strlen(barCode) < 8 || strlen(barCode) > 10){
 		printf("This is an invalid serial number becase the code length is invalid\n");
@@ -59,5 +60,4 @@ bool isValid(char barCode[]){
 		return false; 
 	}
 	return true; 
-
 }
