@@ -44,8 +44,6 @@ int CountEmployee_Salary(struct employee EmployeeArray[], int N, float S1, float
 	return count;
 };
 
-
-
 int main()
 {
 	// Filling an array of employees with some random information 
@@ -72,7 +70,7 @@ int main()
 	emp[3].id = 2; 
 	strcpy(emp[3].name, "jason");
 	emp[3].JoinYear = 1999; 
-	emp[3].rank = r;  
+	emp[3].rank = j;  
 
 	emp[4].id = 4; 
 	strcpy(emp[4].name, "joe");
@@ -85,8 +83,15 @@ int main()
 	strcpy(k.name, "joe");
 	k.JoinYear = 1999; 
 	k.rank = r;
-
+	// print the index where the employee is found 
 	printf("your returned value is:  %d\n", SearchEmployee(emp, 5, k) );
+	// the salary range we are looking for 
+
+	float s1 = 25000;
+	float s2 = 31000; 
+	// prints the number of people in the specified salery range. 
+	printf("The number of people with a salery between %f and %f is : %d \n", 
+		s1,s2,CountEmployee_Salary(emp, 5, s1,s2));
  
 	return 0;
 }
