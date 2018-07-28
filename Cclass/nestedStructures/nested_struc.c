@@ -1,7 +1,6 @@
 #import <stdio.h>
 #import <string.h>
 
-
 struct employeeRank
 {
 	int level;
@@ -43,7 +42,6 @@ int CountEmployee_Salary(struct employee EmployeeArray[], int N, float S1, float
 	}
 	return count;
 };
-
 int main()
 {
 	// Filling an array of employees with some random information 
@@ -81,11 +79,17 @@ int main()
 	struct employee k; 
 	k.id = 1; 
 	strcpy(k.name, "joe");
-	k.JoinYear = 1999; 
+	k.JoinYear = 1990; 
 	k.rank = r;
 	// print the index where the employee is found 
 	printf("your returned value is:  %d\n", SearchEmployee(emp, 5, k) );
 	// the salary range we are looking for 
+	
+	k.id = 2; 
+	strcpy(k.name, "jason");
+	k.JoinYear = 1999; 
+	k.rank = j;
+	printf("your returned value is:  %d\n", SearchEmployee(emp, 5, k) );
 
 	float s1 = 25000;
 	float s2 = 31000; 
